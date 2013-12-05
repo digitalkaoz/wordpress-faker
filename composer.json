@@ -1,0 +1,12 @@
+{
+    "name": "digitalkaoz/wordpress-faker",
+
+    "require" : {
+        "nelmio/alice" : "dev-master",
+        "symfony/console"  :"@stable"
+    },
+
+    "autoload" : {
+        "psr-0": { "digitalkaoz\\WordpressFaker": "src/" }
+    }
+}

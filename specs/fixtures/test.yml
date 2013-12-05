@@ -1,0 +1,8 @@
+digitalkaoz\WordpressFaker\Post:
+    posts{1..10}:
+        __set: __set
+        username: bob
+        fullname: Bob
+        birthDate: 1980-10-10
+        email: bob@example.org
+        favoriteNumber: 42
