@@ -19,7 +19,7 @@ with **Composer** :
 as executable **PHAR** :
 
 ```
-$ wget http://digitalkaoz.github.com/wordpress-faker/wordpress-faker.phar
+$ wget https://github.com/digitalkaoz/wordpress-faker/wordpress-faker.phar
 ```
 
 Usage
