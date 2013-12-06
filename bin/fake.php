@@ -9,6 +9,6 @@ use Symfony\Component\Console;
 use digitalkaoz\WordpressFaker;
 
 $app = new Console\Application('wordpress-faker', 0.1);
-$app->add(new WordpressFaker\Command\WordpressFakerCommand());
+$app->add(new WordpressFaker\Command\WordpressFakerCommand(new WordpressFaker\WordpressPersister()));
 
 $app->run(new Console\Input\ArgvInput(), new Console\Output\ConsoleOutput());

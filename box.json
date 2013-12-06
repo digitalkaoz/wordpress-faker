@@ -1,0 +1,29 @@
+{
+    "alias": "wordpress-faker.phar",
+    "chmod": "0755",
+    "compactors": [
+        "Herrera\\Box\\Compactor\\Json",
+        "Herrera\\Box\\Compactor\\Php"
+    ],
+    "directories": [
+        "src"
+    ],
+    "extract": true,
+    "files": [
+        "LICENSE"
+    ],
+    "finder": [
+        {
+            "name": "*.php",
+            "exclude": [
+                "Tests"
+            ],
+            "in": "vendor"
+        }
+    ],
+    "git-commit": "git-commit",
+    "git-version": "git-version",
+    "main": "bin/fake.php",
+    "output": "wordpress-faker-@git-version@.phar",
+    "stub": true
+}

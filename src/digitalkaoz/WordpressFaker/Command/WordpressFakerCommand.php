@@ -3,6 +3,8 @@
 
 namespace digitalkaoz\WordpressFaker\Command;
 
+use digitalkaoz\WordpressFaker\Faker\WordpressProvider;
+use digitalkaoz\WordpressFaker\WordpressPersister;
 use Nelmio\Alice\Loader\Yaml;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -16,6 +18,17 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class WordpressFakerCommand extends Command
 {
+    /**
+     * @var WordpressPersister
+     */
+    private $persister;
+
+    public function __construct(WordpressPersister $persister)
+    {
+        $this->persister = $persister;
+
+        parent::__construct();
+    }
 
     /**
      * @inheritDoc
@@ -42,11 +55,11 @@ EOT
 
         require($input->getArgument('wp-config'));
 
-        $loader = new Yaml();
+        $loader = new Yaml('de_DE', array(new WordpressProvider()), 1024);
         $objects = $loader->load($input->getArgument('faker-file'));
 
-        foreach ($objects as $object) {
-            \wp_insert_post(get_object_vars($object));
-        }
+        $this->persister->persist($objects);
+
+        $output->writeln(sprintf('<info>%d</info> Posts successfully created', count($objects)));
     }
 } 

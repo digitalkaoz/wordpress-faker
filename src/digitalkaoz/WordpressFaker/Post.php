@@ -6,19 +6,13 @@ namespace digitalkaoz\WordpressFaker;
 
 /**
  * Post
- * @author Robert Schönthal <robert.schoenthal@sinnerschrader.com>
+ * @author Robert Schönthal <robert.schoenthal@gmail.com>
  */
 class Post
 {
+    public $meta = array();
+
     public function __set($key, $value) {
         $this->{$key} = $value;
     }
-
-//    public function __call($fn, $args) {
-//
-//        if (0 === strpos($fn, 'set')) {
-//            die(var_dump($args));
-//        }
-//    }
-
 }
